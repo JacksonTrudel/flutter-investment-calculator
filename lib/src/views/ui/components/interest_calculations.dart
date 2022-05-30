@@ -8,16 +8,37 @@ class InterestCalculations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<InvestmentModel>(
-        builder: (context, investmentModelData, child) {
-      return Column(children: [
-        Text(
-            'Final value: ${investmentModelData.principle.toStringAsFixed(2)}'),
-        Text(
-            'Interest Accrued: ${investmentModelData.interestAccrued.toStringAsFixed(2)}'),
-        Text(
-            'ROI: ${investmentModelData.returnOnInvestment.toStringAsFixed(2)}')
-      ]);
-    });
+    return Padding(
+        padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 0.0),
+        child: Column(children: [
+          Text(
+            'Results',
+            style: TextStyle(fontSize: 30, color: Colors.lightGreen[600]),
+          ),
+          // ALL RESULT FIELDS
+          Container(
+              padding: const EdgeInsets.fromLTRB(15.0, 20.0, 15.0, 0.0),
+              alignment: Alignment.topLeft,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Consumer<InvestmentModel>(
+                        builder: (context, investmentModelData, child) {
+                      return Text(
+                          'Final value: ${investmentModelData.principle.toStringAsFixed(2)}',
+                          textAlign: TextAlign.left);
+                    }),
+                    Consumer<InvestmentModel>(
+                        builder: (context, investmentModelData, child) {
+                      return Text(
+                          'Interest Accrued: ${investmentModelData.interestAccrued.toStringAsFixed(2)}');
+                    }),
+                    Consumer<InvestmentModel>(
+                        builder: (context, investmentModelData, child) {
+                      return Text(
+                          'ROI: ${investmentModelData.returnOnInvestment.toStringAsFixed(2)}');
+                    })
+                  ]))
+        ]));
   }
 }
