@@ -42,9 +42,6 @@ class _InterestCalculatorState extends State<InterestCalculator> {
             children: const [
               InterestCalculatorForm(),
               InterestCalculations(),
-              /*Text('Final value: ${calculation.finalValue}'),
-              Text('Interest accrued: ${calculation.interestAccrued}'),
-              Text('ROI: %${calculation.returnPercentage}')*/
             ],
           ),
         ));

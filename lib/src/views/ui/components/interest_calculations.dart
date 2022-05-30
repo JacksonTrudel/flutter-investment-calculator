@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../logic/models/investment_model.dart';
+import '../../utils/formatting_utils.dart';
 
 class InterestCalculations extends StatelessWidget {
   const InterestCalculations({Key? key}) : super(key: key);
@@ -25,18 +26,18 @@ class InterestCalculations extends StatelessWidget {
                     Consumer<InvestmentModel>(
                         builder: (context, investmentModelData, child) {
                       return Text(
-                          'Final value: ${investmentModelData.principle.toStringAsFixed(2)}',
+                          'Final value: ${FormattingUtils.formatAsCurrency(investmentModelData.principle)}',
                           textAlign: TextAlign.left);
                     }),
                     Consumer<InvestmentModel>(
                         builder: (context, investmentModelData, child) {
                       return Text(
-                          'Interest Accrued: ${investmentModelData.interestAccrued.toStringAsFixed(2)}');
+                          'Interest Accrued: ${FormattingUtils.formatAsCurrency(investmentModelData.interestAccrued)}');
                     }),
                     Consumer<InvestmentModel>(
                         builder: (context, investmentModelData, child) {
                       return Text(
-                          'ROI: ${investmentModelData.returnOnInvestment.toStringAsFixed(2)}');
+                          'ROI: ${investmentModelData.returnOnInvestment.toStringAsFixed(2)}%');
                     })
                   ]))
         ]));
