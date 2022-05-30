@@ -28,20 +28,26 @@ class InterestCalculatorForm extends StatelessWidget {
       return Column(
         children: [
           styleInputField(InterestCalculatorNumberInput(
-              label: 'Principle',
-              value: investmentModelData.principle,
-              onChanged: (newVal) => _handleDoubleInput(
-                  newVal, investmentModelData.setPrinciple))),
+            label: 'Principle',
+            value: investmentModelData.principle,
+            onChanged: (newVal) =>
+                _handleDoubleInput(newVal, investmentModelData.setPrinciple),
+            inputPrefix: const Text('\$'),
+          )),
           styleInputField(InterestCalculatorNumberInput(
-              label: 'Interest Rate',
-              value: investmentModelData.interestRate,
-              onChanged: (newVal) => _handleDoubleInput(
-                  newVal, investmentModelData.setInterestRate))),
+            label: 'Interest Rate',
+            value: investmentModelData.interestRate,
+            onChanged: (newVal) =>
+                _handleDoubleInput(newVal, investmentModelData.setInterestRate),
+            inputSuffix: const Text('%'),
+          )),
           styleInputField(InterestCalculatorNumberInput(
-              label: 'Investment Period (in years)',
-              value: investmentModelData.timeDeltaInYears,
-              onChanged: (newVal) => _handleDoubleInput(
-                  newVal, investmentModelData.setTimeDeltaInYears))),
+            label: 'Investment Period (in years)',
+            value: investmentModelData.timeDeltaInYears,
+            onChanged: (newVal) => _handleDoubleInput(
+                newVal, investmentModelData.setTimeDeltaInYears),
+            inputSuffix: const Text('years'),
+          )),
         ],
       );
     });
